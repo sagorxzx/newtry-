@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>আমার ক্রিয়েটিভ পোর্টফোলিও</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+    <style>
+        :root {
+            --primary: #ff4d4d;
+            --secondary: #4d79ff;
+            --dark: #1a1a2e;
+            --light: #f1f1f1;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+       
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(26, 26, 46, 0.8);
+        }
+        
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .navbar a {
+            font-size: 25px;
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 35px;
+            transition: 0.3s;
+            position: relative;
+        }
+        
+        .navbar a:hover {
+            color: var(--primary);
+        }
+        
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            bottom: -5px;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        
+        .home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+        }
+        
+        .home-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+        
+        .home-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+        
+        .btn-box {
+            display: flex;
+            gap: 20px;
+            animation: fadeIn 1s ease-out 0.9s backwards;
+        }
+        
+        .btn {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50px;
+            font-size: 16px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            overflow: hidden;
+            z-index: 1;
+            transition: 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            z-index: -1;
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .home-sci {
+            position: absolute;
+            bottom: 40px;
+            width: 170px;
+            display: flex;
+            justify-content: space-between;
+            animation: fadeIn 1s ease-out 1.2s backwards;
+        }
+        
+        .home-sci a {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        
+        .home-sci a:hover {
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .home-sci a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            transition: 0.5s;
+        }
+        
+        .home-sci a:hover::before {
+            width: 100%;
+        }
+        
+        .home-img {
+            position: absolute;
+            right: 10%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .home-img::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            background: var(--dark);
+            border-radius: 50%;
+        }
+        
+        .home-img img {
+            position: relative;
+            max-width: 380px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .about {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            background: linear-gradient(to bottom, var(--dark), #16213e);
+        }
+        
+        .about-img {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(77, 121, 255, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.1);
+        }
+        
+        .about-content {
+            max-width: 600px;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+        
+        .about-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .about-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .about-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .skills {
+            min-height: 100vh;
+            padding: 100px 10%;
+            background: linear-gradient(to bottom, #16213e, #0f3460);
+        }
+        
+        .skills h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 70px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+        }
+        
+        .skill-box i {
+            font-size: 50px;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .skill-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-box p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .portfolio {
+            min-height: 100vh;
+            padding: 100px 10%;
+            background: linear-gradient(to bottom, #0f3460, #1a1a2e);
+        }
+        
+        .portfolio h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 70px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-box {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .portfolio-box:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), var(--primary));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 40px;
+            transform: translateY(100%);
+            transition: 0.5s;
+        }
+        
+        .portfolio-box:hover .portfolio-layer {
+            transform: translateY(0);
+        }
+        
+        .portfolio-layer h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-layer p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.5s;
+        }
+        
+        .portfolio-layer a:hover {
+            background: var(--secondary);
+            color: var(--light);
+            transform: rotate(360deg);
+        }
+        
+        .contact {
+            min-height: 100vh;
+            padding: 100px 10%;
+            background: var(--dark);
+        }
+        
+        .contact h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 70px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact form {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .input-box {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .input-field {
+            position: relative;
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        
+        .input-field input,
+        .textarea-field textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            color: var(--light);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            backdrop-filter: blur(5px);
+        }
+        
+        .input-field span {
+            position: absolute;
+            left: 0;
+            padding: 15px;
+            font-size: 16px;
+            color: var(--light);
+            pointer-events: none;
+            transition: 0.5s;
+        }
+        
+        .input-field input:focus ~ span,
+        .input-field input:valid ~ span,
+        .textarea-field textarea:focus ~ span,
+        .textarea-field textarea:valid ~ span {
+            transform: translateX(10px) translateY(-7px);
+            font-size: 12px;
+            padding: 0 10px;
+            background: var(--gradient);
+            border-radius: 5px;
+            color: var(--dark);
+        }
+        
+        .textarea-field {
+            position: relative;
+            width: 100%;
+        }
+        
+        .textarea-field textarea {
+            resize: none;
+            height: 150px;
+        }
+        
+        .contact-btn {
+            padding: 15px 40px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            color: var(--light);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+        
+        footer {
+            padding: 15px 10%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .home-img {
+                width: 350px;
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            header {
+                padding: 20px 5%;
+            }
+            
+            .home,
+            .about,
+            .skills,
+            .portfolio,
+            .contact {
+                padding: 100px 5%;
+            }
+            
+            .home-img {
+                right: 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .home {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+            
+            .home-content {
+                max-width: 100%;
+            }
+            
+            .home-img {
+                position: relative;
+                right: auto;
+                margin-top: 50px;
+            }
+            
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .input-box .input-field {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 450px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .home-img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .about-img {
+                width: 250px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="cursor"></div>
+    
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"> My Web</a>
+        <nav class="navbar">
+            <a href="#home" style="--i:1">Home</a>
+            <a href="#about" style="--i:2">About Me</a>
+            <a href="#skills" style="--i:3">Skill</a>
+            <a href="#portfolio" style="--i:4">Project</a>
+            <a href="#contact" style="--i:5">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hello I'am <span>Sagor </span></h1>
+            <h3>A Web Devloper</h3>
+            <p>আমি একজন প্যাশনেট ওয়েব ডেভেলপার যার ইউজার এক্সপেরিয়েন্স এবং মডার্ন ডিজাইনে গভীর আগ্রহ রয়েছে। আমি সবসময় নতুন নতুন টেকনোলজি শিখতে পছন্দ করি।</p>
+            <div class="btn-box">
+                <a href="#" class="btn">Hire Me</a>
+                <a href="#" class="btn">Contact Me</a>
+            </div>
+        </div>
+        
+        <div class="home-sci">
+            <a href="#" style="--i:7"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="--i:8"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="--i:9"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="--i:10"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image">
+                    <img src="i.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="panda.jpg" alt="">
+        </div>
+        
+        <div class="about-content">
+            <h2>My <span> Self</span></h2>
+            <p>আমি ৫ বছর ধরে ওয়েব ডেভেলপমেন্টের সাথে জড়িত। আমি HTML, CSS, JavaScript, React এবং Vue.js-এ দক্ষ। আমি ক্লিন কোড এবং বেস্ট প্র্যাকটিস মেনে চলতে পছন্দ করি। আমার লক্ষ্য হল ইউজার ফ্রেন্ডলি এবং পারফরম্যান্ট ওয়েব অ্যাপ্লিকেশন তৈরি করা।</p>
+            <p>আমি শুধু কোড লিখি না, সমস্যার সমাধান করি। প্রতিটি প্রজেক্টকে আমি একটি চ্যালেঞ্জ হিসেবে নিই এবং সর্বোচ্চ মানের সলিউশন দিতে চেষ্টা করি।</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2>My<span> Skills</span></h2>
+        
+        <div class="skills-container">
+            <div class="skill-box">
+                <i class="fab fa-html5"></i>
+                <h3>HTML 5</h3>
+            </div>
+          
+               
+            <div class="skill-box">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS 3</h3>
+            </div>
+            
+            <div class="skill-box">
+                <i class="fab fa-js"></i>
+                <h3>Java Script</h3>
+               </div>
+            
+            <div class="skill-box">
+                <i class="fab fa-react"></i>
+                <h3>Python</h3>
+              </div>
+            
+            <div class="skill-box">
+                <i class="fab fa-vuejs"></i>
+                <h3>Python</h3>
+                </div>
+            
+            <div class="skill-box">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>C & C++</h3> </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2>Resent <span>Project</span></h2>
+        
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>ইকমার্স ওয়েবসাইট</h4>
+                    <p>React এবং Node.js ব্যবহার করে তৈরি একটি সম্পূর্ণ ফাংশনাল ইকমার্স প্ল্যাটফর্ম।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>ড্যাশবোর্ড অ্যাপ</h4>
+                    <p>Vue.js এবং Firebase ব্যবহার করে রিয়েল-টাইম ডেটা ভিজুয়ালাইজেশন ড্যাশবোর্ড।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>লার্নিং প্ল্যাটফর্ম</h4>
+                    <p>ইন্টারেক্টিভ কোর্স ম্যাটেরিয়াল এবং কুইজ সিস্টেম সমৃদ্ধ একটি অনলাইন লার্নিং সাইট।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>টাস্ক ম্যানেজমেন্ট</h4>
+                    <p>ড্র্যাগ অ্যান্ড ড্রপ ইন্টারফেস সহ একটি প্রোডাক্টিভিটি অ্যাপ্লিকেশন।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>সোশ্যাল মিডিয়া অ্যাপ</h4>
+                    <p>রিয়েল-টাইম চ্যাট এবং পোস্ট শেয়ারিং ফিচার সমৃদ্ধ একটি মিনিমাল সোশ্যাল নেটওয়ার্ক।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="portfolio-box">
+                <img src="hak.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>পোর্টফোলিও টেমপ্লেট</h4>
+                    <p>ক্রিয়েটিভ প্রফেশনালদের জন্য কাস্টমাইজযোগ্য পোর্টফোলিও টেমপ্লেট।</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact <span> Us </span> </h2>
+        
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" placeholder="পুরো নাম" required>
+                    <span>পুরো নাম</span>
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="ইমেইল ঠিকানা" required>
+                    <span>ইমেইল ঠিকানা</span>
+                </div>
+            </div>
+            
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="number" placeholder="মোবাইল নাম্বার">
+                    
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="ইমেইল সাবজেক্ট">
+                </div>
+            </div>
+            
+            <div class="textarea-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Text" required></textarea>
+            </div>
+            
+            <button type="submit" class="contact-btn"> Send</button></button>
+        </form>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+     <p>Copyright &copy; Sagor Islam
+        <br>সকল অধিকার সংরক্ষিত</p>
+    </footer>
+    
+   
+   
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+        
+        // Navbar links animation
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseover', () => {
+                cursor.style.transform = 'scale(3)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        
+        const hiddenElements = document.querySelectorAll('.skill-box, .portfolio-box, .input-field, .textarea-field');
+        hiddenElements.forEach((el) => {
+            observer.observe(el);
+            el.classList.add('hidden');
+        });
+        
+        // Sticky navbar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
